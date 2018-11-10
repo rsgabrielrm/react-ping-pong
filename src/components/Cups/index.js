@@ -5,7 +5,7 @@ import Logo from "../../assets/pingpongclub.png";
 import Menu from '../Menu';
 import { getUserLocal } from "../../services/auth";
 
-export default class Panel extends Component {
+export default class Cups extends Component {
   state = {
     name: '',
     email: '',
@@ -28,7 +28,7 @@ export default class Panel extends Component {
             <img src={Logo} alt="Logo Ping-Pong" />
           </div>
           <div className="box">
-            <h2>Meu Painel</h2>
+            <h2>Meu Campeonato</h2>
             <div className="user">
               <p><strong>Nome</strong>: {user.name}</p>
               <p><strong>E-mail</strong>: {user.email}</p>

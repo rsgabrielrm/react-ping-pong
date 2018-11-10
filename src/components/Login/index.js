@@ -23,7 +23,7 @@ class Login extends Component {
     } else {
       try {
         const response = await api.post("/users/login", { email, password });
-        login(response.data.token);
+        login(response.data);
         this.props.history.push("/panel");
       } catch (err) {
         this.setState({
