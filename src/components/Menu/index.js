@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import './style.css';
-import { getUserLocal } from "../../services/auth";
 
 
-export default class Panel extends Component {
+export default class Menu extends Component {
 
 
   async componentDidMount(){
   }
 
   render(){
-    const user = this.state;
-    console.log('state', this.state);
+
     return (
       <div className="navbar">
         <nav id="menu">
           <div className="nav-left">
               <ul>
                   <li><Link to={"/panel"}>Home</Link></li>
+                  <li><Link to={"/players"}>Jogadores</Link></li>
                   <li><Link to={"/cups"}> Campeonatos</Link></li>
                   <li><a href="#">Partidas</a></li>
                   <li><a href="#">Ranking</a></li>

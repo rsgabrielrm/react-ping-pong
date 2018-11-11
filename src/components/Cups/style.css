@@ -1,0 +1,66 @@
+.cups table td{
+  text-align: center;
+}
+.cups table th{
+  text-align: center;
+}
+
+
+.header-box {
+  display: inline-block;
+}
+
+.header-box .box-right button {
+  width: 150px;
+  height: 46px;
+  border-radius: 5px;
+  border: 2px solid #d60010 ;
+  background: none;
+  margin-top: 62px;
+  color: #da552f;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.header-box .box-right button:hover {
+  background: #d60010;
+  color: #fff;
+}
+.header-box .formCup {
+  width: 100%;
+  background: #fff;
+}
+.box-left input {
+  height: 46px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  color: #777;
+  font-size: 15px;
+  width: 600px;
+  border: 1px solid #ddd;
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.errorForm p {
+    color: #ff3333;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.box-left {
+    float: left;
+    padding-top: 15px;
+}
+
+.box-right {
+    float: right;
+}

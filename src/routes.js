@@ -8,6 +8,8 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Panel from "./components/Panel";
 import Cups from "./components/Cups";
+import Players from "./components/Players";
+import Details from "./components/Players/Details";
 
 //Para rotas protegidas
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -30,6 +32,8 @@ const Routes = () => (
       <Route path="/signup" component={SignUp} />
       <PrivateRoute path="/panel" component={Panel} />
       <PrivateRoute path="/cups" component={Cups} />
+      <PrivateRoute path="/players" component={Players} />
+      <PrivateRoute exact path="/player/:id/" component={Details} />
       <PrivateRoute path="/logout" component={ () => {
           const out = logout();
           if(out){
