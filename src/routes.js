@@ -7,7 +7,10 @@ import { isAuthenticated , logout } from "./services/auth";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Panel from "./components/Panel";
+import Matches from "./components/Matches";
+import EditMatche from "./components/Matches/EditMatche";
 import Cups from "./components/Cups";
+import EditCup from "./components/Cups/EditCup";
 import Players from "./components/Players";
 import Details from "./components/Players/Details";
 
@@ -31,9 +34,14 @@ const Routes = () => (
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={SignUp} />
       <PrivateRoute path="/panel" component={Panel} />
+      <PrivateRoute exact path="/matches" component={Matches} />
+      <PrivateRoute path="/matches/:id/edit" component={EditMatche} />
       <PrivateRoute path="/cups" component={Cups} />
-      <PrivateRoute path="/players" component={Players} />
-      <PrivateRoute exact path="/player/:id/" component={Details} />
+      <PrivateRoute path="/cup/:id/matches" component={Matches} />
+      <PrivateRoute path="/cup/:id/players" component={Players} />
+      <PrivateRoute path="/cup/:id/edit/:name" component={EditCup} />
+      <PrivateRoute exact path="/players" component={Players} />
+      <PrivateRoute path="/player/:id/" component={Details} />
       <PrivateRoute path="/logout" component={ () => {
           const out = logout();
           if(out){

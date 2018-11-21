@@ -1,0 +1,48 @@
+.campeonato input {
+  flex: 1;
+  min-height: 38px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  color: #808080;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #CCCCCC;
+  &::placeholder {
+    color: #999;
+  }
+}
+
+.campeonato input:focus {
+  border-color: #2684FF;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 0 0 1px #2684FF;
+}
+
+.formCup button {
+  color: #fff;
+  font-size: 18px;
+  background: #d60010;
+  height: 45px;
+  border: 0;
+  border-radius: 5px;
+  width: 50%;
+}
+
+.formCup button:hover {
+  background: #ce9c69;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.boxButtonCup {
+  text-align: center;
+  padding: 20px;
+}
+
+.headerCupForm{
+  text-align: center;
+  padding: 20px;
+}

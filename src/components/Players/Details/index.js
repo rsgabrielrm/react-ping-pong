@@ -14,12 +14,10 @@ export default class Details extends Component {
     const { id } = this.props.match.params;
     const response = await api.get(`/users/${id}`);
     this.setState({player: response.data});
-    console.log('response', response);
   }
 
   render(){
     const dados = this.state;
-    console.log('state', this.state);
     return (
       <div className="Panel-Container">
         <Menu />

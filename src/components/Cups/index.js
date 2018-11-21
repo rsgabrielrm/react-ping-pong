@@ -38,7 +38,6 @@ export default class Cups extends Component {
   }
 
   render(){
-    const ste = this.state;
     return (
       <div className="Panel-Container">
         <Menu />
@@ -69,13 +68,17 @@ export default class Cups extends Component {
               <table>
                 <tbody>
                   <tr>
-                    <th>Nome</th>
-                    <th>Partidas</th>
+                    <th width="60%">Nome</th>
+                    <th width="20%">Partidas</th>
+                    <th width="20%">Jogadores</th>
+                    <th width="20%">Editar</th>
                   </tr>
                 {this.state.cups.map( cup => (
                   <tr key={cup.id}>
                     <td>{cup.name}</td>
                     <td><Link to={`/cup/${cup.id}/matches`}>Detalhes</Link></td>
+                    <td><Link to={`/cup/${cup.id}/players`}>Listar</Link></td>
+                    <td><Link to={`/cup/${cup.id}/edit/${cup.name}`}>Editar</Link></td>
                   </tr>
                 ))}
                 </tbody>

@@ -10,6 +10,7 @@ export const login = token => {
   localStorage.setItem('name', token.name);
   localStorage.setItem('email', token.email);
   localStorage.setItem('id', token.id);
+  localStorage.setItem('ranking', token.rating);
 };
 
 export const logout = () => {
@@ -17,6 +18,7 @@ export const logout = () => {
   localStorage.removeItem('name');
   localStorage.removeItem('email');
   localStorage.removeItem('id');
+  localStorage.removeItem('ranking');
   return true;
 };
 
@@ -24,5 +26,6 @@ export const getUserLocal = () => {
     const name = localStorage.getItem('name');
     const email = localStorage.getItem('email');
     const id = localStorage.getItem('id');
-    return {name, email, id};
+    const ranking = localStorage.getItem('ranking');
+    return {name, email, id, ranking};
 }

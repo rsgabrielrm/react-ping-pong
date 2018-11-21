@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import api from '../../services/api';
 import './style.css';
 import Logo from "../../assets/pingpongclub.png";
 import Menu from '../Menu';
@@ -10,16 +9,16 @@ export default class Panel extends Component {
     name: '',
     email: '',
     id: '',
+    ranking: '',
   };
 
   async componentDidMount(){
     const dados = await getUserLocal();
-    this.setState({'name': dados.name, 'email': dados.email, 'id': dados.id});
+    this.setState({'name': dados.name, 'email': dados.email, 'id': dados.id, 'ranking': dados.ranking});
   }
 
   render(){
     const user = this.state;
-    console.log('state', this.state);
     return (
       <div className="Panel-Container">
         <Menu />
@@ -30,9 +29,10 @@ export default class Panel extends Component {
           <div className="box">
             <h2>Meu Painel</h2>
             <div className="user">
+              <p><strong>Id</strong>: {user.id}</p>
               <p><strong>Nome</strong>: {user.name}</p>
               <p><strong>E-mail</strong>: {user.email}</p>
-              <p><strong>Id</strong>: {user.id}</p>
+              <p><strong>Ranking</strong>: {user.ranking}</p>
             </div>
           </div>
           <div className="box">

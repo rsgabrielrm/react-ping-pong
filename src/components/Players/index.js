@@ -4,21 +4,39 @@ import api from '../../services/api';
 import './style.css';
 import Logo from "../../assets/pingpongclub.png";
 import Menu from '../Menu';
-import { getUserLocal } from "../../services/auth";
 
 export default class Players extends Component {
   state = {
+    title: '',
     players: [],
   };
 
   async componentDidMount(){
-    const response = await api.get("/users/");
-    this.setState({players: response.data});
+    if(this.props.match.path === '/players'){
+      const response = await api.get("/users/");
+      const result = response.data.sort((a,b) => {
+        let rA = parseInt(a.rating);
+        let rB = parseInt(b.rating);
+        return (rA < rB) ? 1 : ((rB < rA) ? -1 : 0)
+      });
+      let title = "Jogadores"
+      this.setState({players: result, title});
+    } else {
+      const { id } = this.props.match.params;
+      const response = await api.get(`/championships/${id}`);
+      const result = response.data.users.sort((a,b) => {
+        let rA = parseInt(a.rating);
+        let rB = parseInt(b.rating);
+        return (rA < rB) ? 1 : ((rB < rA) ? -1 : 0)
+      });
+      let title = `Jogadores incritos no campeonato: ${response.data.name}`
+      this.setState({players: result, title});
+    }
+
   }
 
   render(){
-    const players = this.state;
-    console.log('state', this.state);
+    const { players, title } = this.state;
     return (
       <div className="Panel-Container">
         <Menu />
@@ -27,7 +45,7 @@ export default class Players extends Component {
             <img src={Logo} alt="Logo Ping-Pong" />
           </div>
           <div className="box">
-            <h2>Jogadores</h2>
+            <h2>{ title }</h2>
             <div className="users">
               <table>
                 <tbody>
@@ -37,8 +55,8 @@ export default class Players extends Component {
                     <th>Rating</th>
                     <th>Detalhes</th>
                   </tr>
-                  {this.state.players.map( player => (
-                    <tr key={player._id}>
+                  {players.map( player => (
+                    <tr key={player.id}>
                       <td>{player.name}</td>
                       <td>{player.email}</td>
                       <td>{player.rating}</td>

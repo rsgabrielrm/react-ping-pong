@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../services/api';
 import './style.css';
 
 
@@ -20,8 +19,7 @@ export default class Menu extends Component {
                   <li><Link to={"/panel"}>Home</Link></li>
                   <li><Link to={"/players"}>Jogadores</Link></li>
                   <li><Link to={"/cups"}> Campeonatos</Link></li>
-                  <li><a href="#">Partidas</a></li>
-                  <li><a href="#">Ranking</a></li>
+                  <li><Link to={"/matches"}>Partidas</Link></li>
               </ul>
             </div>
             <div className="nav-right">
